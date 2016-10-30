@@ -18,7 +18,6 @@ module.exports = function(passport) {
         passReqToCallback : true
     },
     function(req, email, password, done) {
-        console.log('dfgsdgAS');
         User.findOne({ 'email' :  email }, function(err, user) {
 
             if (err){
