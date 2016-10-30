@@ -2,7 +2,10 @@ var express = require("express");
 var app = express();
 var port = 80;
 var mongoose = require('mongoose');
-mongoose.connect(' mongodb://root:root@ds139267.mlab.com:39267/nodejschat');
+
+var configDB = require('./config/database.js');
+
+mongoose.connect(configDB.url);
 
 app.get("/", function(req, res) {
   res.set('Content-Type', 'text/plain');
