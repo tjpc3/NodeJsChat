@@ -1,5 +1,5 @@
 var express = require("express");
-var app = express();
+var Server = require('http').Server;
 var port = 80;
 var mongoose = require('mongoose');
 
@@ -13,6 +13,9 @@ var passport = require('passport');
 var bodyParser   = require('body-parser');
 var cookieParser = require('cookie-parser');
 
+var app = express();
+var server = Server(app);
+var io = require('socket.io')(server);
 
 app.set("view engine", "ejs");
 
@@ -27,6 +30,6 @@ app.use(flash());
 require('./config/passport')(passport);
 require("./app/routes.js")(app, passport);
 
-app.listen(port, function() {
+server.listen(port, function() {
   console.log("Server running on port " + port + ".");
 });

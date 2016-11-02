@@ -36,7 +36,7 @@ module.exports = function(app, passport) {
         });
     });
 
-    // logout page
+    // Logout page
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
