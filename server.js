@@ -1,6 +1,6 @@
 var express = require("express");
 var Server = require('http').Server;
-var port = 80;
+var port = process.env.PORT || 80;
 var mongoose = require('mongoose');
 
 var configDB = require('./config/database.js');
