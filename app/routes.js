@@ -12,7 +12,7 @@ module.exports = function(app, passport) {
 
     // Process the login form
     app.post('/login', passport.authenticate('login', {
-        successRedirect : '/profile',
+        successRedirect : '/chat',
         failureRedirect : '/login',
         failureFlash : true
     }));
@@ -24,14 +24,14 @@ module.exports = function(app, passport) {
 
     // Process the signup forum
     app.post('/signup', passport.authenticate('signup', {
-        successRedirect : '/profile',
+        successRedirect : '/chat',
         failureRedirect : '/signup',
         failureFlash : true
     }));
 
-    // Profile viewer
-    app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
+    // Chat viewer
+    app.get('/chat', isLoggedIn, function(req, res) {
+        res.render('chat.ejs', {
             user : req.user
         });
     });

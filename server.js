@@ -19,16 +19,22 @@ var io = require('socket.io')(server);
 
 app.set("view engine", "ejs");
 
+var sessionMiddleware = session({ secret:'poolsclosed' , resave:true , saveUninitialized:true });
+require('./config/socket.js')(io, sessionMiddleware);
+
+app.use(express.static('public')); // Static directory
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan('dev'));
-app.use(session({ secret:'poolsclosed' , resave:true , saveUninitialized:true }));
+app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
 require('./config/passport')(passport);
-require("./app/routes.js")(app, passport);
+require('./app/routes.js')(app, passport);
+require('./app/chatserver.js')(io);
 
 server.listen(port, function() {
   console.log("Server running on port " + port + ".");
