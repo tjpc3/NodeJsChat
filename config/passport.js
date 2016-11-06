@@ -24,8 +24,20 @@ module.exports = function(passport) {
               return done(err);
             }
 
+            if (username.length > 15)
+              return done(null, false, req.flash('signupMessage', 'Your username must not exceed 15 characters.'));
+
+            if (username.length < 4)
+              return done(null, false, req.flash('signupMessage', 'Your username must be at least 4 characters.'));
+
+            if (password.length > 100)
+              return done(null, false, req.flash('signupMessage', 'Your password must be at least 6 characters.'));
+
+            if (username.length < 4)
+              return done(null, false, req.flash('signupMessage', 'Your password must must not exceed 100 characters.'));
+
             if (user) {
-                return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
+              return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
             } else {
 
                 var newUser            = new User();
