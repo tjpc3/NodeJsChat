@@ -4,7 +4,7 @@ module.exports = function(io) {
     else {
       var username = socket.request.session.passport.user.username;
       socket.on('message', function(msg) {
-        if (msg.length != 0 && msg.length < 100)
+        if (msg.length != 0 && msg.length < 700)
           io.emit('message', {name:username, message:msg});
       });
     }
