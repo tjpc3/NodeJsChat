@@ -26,7 +26,7 @@ app.use(express.static('public')); // Static directory
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(morgan('dev'));
+app.use(morgan(':remote-addr :method :url :status :response-time ms'));
 app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
