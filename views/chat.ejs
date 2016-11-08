@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Socket.IO chat</title>
     <link rel="stylesheet" href="/css/chat.css">
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src='/js/chat.js'></script>
-  </head>
-  <body>
-    <ul id="messages"></ul>
+</head>
+
+<body>
+    <div id="messages-container">
+        <ul id="messages"></ul>
+    </div>
     <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
+        <input id="m" autocomplete="off" /><button>Send</button>
     </form>
-  </body>
+</body>
+
 </html>

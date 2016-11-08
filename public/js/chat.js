@@ -11,7 +11,9 @@ $(document).ready(function() {
 
   socket.on('message', function(data){
     var newMessage = $('<li>').text("<" + data.name + "> " + data.message);
-    newMessage[0].scrollTop = newMessage[0].scrollHeight;
     $('#messages').append(newMessage);
+    $('#messages-container').animate({
+      scrollTop : newMessage.position().top,
+    }, 100);
   });
 });
