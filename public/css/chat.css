@@ -8,6 +8,23 @@ body {
     font: 13px Helvetica, Arial;
 }
 
+#typing-container {
+    background: rgb(130, 224, 255);
+    border: 3px solid black;
+    position: fixed;
+    bottom: 39px;
+    height: 26px;
+    width: 100%;
+    display: inline-block;
+}
+
+#typing {
+  position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    left: 2px;
+}
+
 form {
     background: #000;
     padding: 3px;
@@ -31,11 +48,11 @@ form button {
 }
 
 #messages-container {
-    position: absolute;;
+    position: absolute;
     float: left;
     width: 100%;
     top: 0px;
-    bottom: 41px;
+    bottom: 64px;
     overflow-y: scroll;
 }
 
